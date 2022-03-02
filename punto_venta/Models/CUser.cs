@@ -20,10 +20,12 @@ namespace punto_venta.Models
         public string Fldname { get; set; }
         public string Fldpassword { get; set; }
         public string FldemailAccount { get; set; }
+       
 
         public virtual CUserstatus IdUserStatusNavigation { get; set; }
         public virtual CUsertype IdUserTypeNavigation { get; set; }
         public virtual CEnterprisebranchuser CEnterprisebranchuser { get; set; }
         public virtual ICollection<PPasswordreset> PPasswordresets { get; set; }
+        public string Usuario { get; internal set; }
     }
 }

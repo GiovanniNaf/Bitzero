@@ -74,20 +74,20 @@ namespace punto_venta.Models
         public virtual DbSet<PPasswordreset> PPasswordresets { get; set; }
         public virtual DbSet<sp_InsertUser> Sp_InsertUsers { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+       /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=sql5097.site4now.net;Database=db_a81d65_bitzerobd;user=db_a81d65_bitzerobd_admin;password=Bitzerodb14");
             }
-        }
+        }*/
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
-            modelBuilder.Entity<CAccessprivilege>(entity =>
+           modelBuilder.Entity<CAccessprivilege>(entity =>
             {
                 entity.HasKey(e => e.IdAccessPrivilege)
                     .HasName("PK_c_accessprivilege_id_accessPrivilege");

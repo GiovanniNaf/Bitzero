@@ -13,8 +13,5 @@ namespace punto_venta.Models
         public string Fldname { get; set; }
         public string FldlastName { get; set; }
         public string FldfirstName { get; set; }
-        
-       
-    
     }
 }

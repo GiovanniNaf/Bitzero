@@ -15,14 +15,36 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.14" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
     <None Remove="Microsoft.AspNetCore.Identity" />
     <None Remove="IdentityAuth\" />
+    <None Remove="Models\Viewmodel\" />
+    <None Remove="Helper\" />
+    <None Remove="Data\" />
+    <None Remove="Data\Interfaces\" />
+    <None Remove="Entidades\" />
+    <None Remove="Repositorio\" />
+    <None Remove="Models\DTOS\" />
+    <None Remove="AutoMapper" />
+    <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+    <None Remove="Swashbuckle.AspNetCore.SwaggerUI" />
+    <None Remove="Swashbuckle.AspNetCore.Annotations" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="IdentityAuth\" />
+    <Folder Include="Models\Viewmodel\" />
+    <Folder Include="Helper\" />
+    <Folder Include="Data\" />
+    <Folder Include="Data\Interfaces\" />
+    <Folder Include="Entidades\" />
+    <Folder Include="Repositorio\" />
+    <Folder Include="Models\DTOS\" />
   </ItemGroup>
 </Project>
