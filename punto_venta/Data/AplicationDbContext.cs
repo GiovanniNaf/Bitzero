@@ -18,7 +18,8 @@ namespace punto_venta.Data
 
             modelBuilder.Entity<ObtenerUsuario>().ToSqlQuery("EXEC sp_listuser");
             modelBuilder.Entity<ObtenerEnter>().ToSqlQuery("EXEC sp_listenter");
-            modelBuilder.Entity<ObternerEnterPriseBranch>().ToSqlQuery("EXEC sp_listenEnterpriceBranch");
+            modelBuilder.Entity<ObtenerEnterPriseBranch>().ToSqlQuery("EXEC sp_listenEnterpriceBranch");
+            modelBuilder.Entity<ObtenerEnterPriseBranchCash>().ToSqlQuery("EXEC sp_listEnterpriseBranchCach");
 
         }
 

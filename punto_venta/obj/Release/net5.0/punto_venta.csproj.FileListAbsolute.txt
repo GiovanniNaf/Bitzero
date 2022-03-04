@@ -87,7 +87,6 @@ C:/Users/giova/source/repos/punto_venta/punto_venta/obj/Release/net5.0/punto_ven
 /Users/master/Documents/punto_venta/punto_venta/bin/Release/net5.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 /Users/master/Documents/punto_venta/punto_venta/bin/Release/net5.0/Microsoft.IdentityModel.Tokens.dll
 /Users/master/Documents/punto_venta/punto_venta/bin/Release/net5.0/Microsoft.OpenApi.dll
-/Users/master/Documents/punto_venta/punto_venta/bin/Release/net5.0/Newtonsoft.Json.dll
 /Users/master/Documents/punto_venta/punto_venta/bin/Release/net5.0/Swashbuckle.AspNetCore.Swagger.dll
 /Users/master/Documents/punto_venta/punto_venta/bin/Release/net5.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/master/Documents/punto_venta/punto_venta/bin/Release/net5.0/Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -124,3 +123,11 @@ C:/Users/giova/source/repos/punto_venta/punto_venta/obj/Release/net5.0/punto_ven
 /Users/master/Documents/punto_venta/punto_venta/obj/Release/net5.0/ref/punto_venta.dll
 /Users/master/Documents/punto_venta/punto_venta/obj/Release/net5.0/punto_venta.pdb
 /Users/master/Documents/punto_venta/punto_venta/obj/Release/net5.0/punto_venta.genruntimeconfig.cache
+/Users/master/Documents/punto_venta/punto_venta/bin/Release/net5.0/AutoMapper.dll
+/Users/master/Documents/punto_venta/punto_venta/bin/Release/net5.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/Users/master/Documents/punto_venta/punto_venta/bin/Release/net5.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/master/Documents/punto_venta/punto_venta/bin/Release/net5.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/master/Documents/punto_venta/punto_venta/bin/Release/net5.0/Microsoft.Extensions.Options.dll
+/Users/master/Documents/punto_venta/punto_venta/bin/Release/net5.0/Microsoft.Extensions.Primitives.dll
+/Users/master/Documents/punto_venta/punto_venta/bin/Release/net5.0/Swashbuckle.AspNetCore.Annotations.dll
+/Users/master/Documents/punto_venta/punto_venta/bin/Release/net5.0/System.Runtime.CompilerServices.Unsafe.dll

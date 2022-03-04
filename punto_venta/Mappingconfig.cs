@@ -19,6 +19,9 @@ namespace punto_venta
               config.CreateMap<EnterModel, EnterDTO>();
               config.CreateMap<EnterPriseBranchDTO, EnterpriseBrainchModel>();
               config.CreateMap<EnterpriseBrainchModel, EnterPriseBranchDTO>();
+              config.CreateMap<EnterpriseBranchCashDTO, EnterprisebranchcashModel>();
+              config.CreateMap<EnterprisebranchcashModel, EnterpriseBranchCashDTO>();
+
           });
 
             return mappingConfig;
