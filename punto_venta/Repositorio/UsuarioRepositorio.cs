@@ -29,7 +29,6 @@ namespace punto_venta.Repositorio
            
 
             await _db.Database.ExecuteSqlInterpolatedAsync($@"EXEC sp_InsertUser
-                    @id_user = {Cuser.IdUser},
                     @id_userType = {Cuser.IdUserType},
                     @id_userStatus ={Cuser.IdUserStatus},
                     @fldpassword = {Cuser.Fldpassword},

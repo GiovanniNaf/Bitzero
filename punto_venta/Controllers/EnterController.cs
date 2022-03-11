@@ -15,14 +15,14 @@ using punto_venta.Repositorio;
 namespace punto_venta.Controllers
 {
     [Route("api/[controller]")]
-    public class EnterController :Controller
+    public class EnterPriseController :Controller
     {
 
         private IMapper _mapper;
         public readonly AplicationDbContext _db;
         protected ReponseDTO _response;
 
-        public EnterController(AplicationDbContext db, IMapper mapper)
+        public EnterPriseController(AplicationDbContext db, IMapper mapper)
         {
             _mapper = mapper;
             _db = db;
@@ -31,8 +31,9 @@ namespace punto_venta.Controllers
         }
 
         //-------------------CRUD--------------------------//
-        
+
         //--------------CREATE-----------------------------//
+        [Authorize]
         [HttpPost("Register")]
         public async Task<EnterDTO> Post(EnterDTO enterDTO)
         {
@@ -40,7 +41,7 @@ namespace punto_venta.Controllers
             
 
             await _db.Database.ExecuteSqlInterpolatedAsync($@"EXEC sp_InsertEnter
-                    @id_enterprise = {CEnter.IdEnterprise},
+                    
                     @id_state = {CEnter.IdState},
                     @id_municipality ={CEnter.IdMunicipality},
                     @fldname= {CEnter.Fldname},
@@ -58,7 +59,7 @@ namespace punto_venta.Controllers
 
 
         //--------------READ--------------------------------//
-        //[Authorize]
+        [Authorize]
         [HttpGet("Lista")]
         public async Task<IEnumerable<ObtenerEnter>> Get()
         {
@@ -69,6 +70,7 @@ namespace punto_venta.Controllers
 
 
         //----------------UPDATE----------------------------//
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUpdate(EnterDTO enterDTO, int id)
         {
@@ -96,6 +98,7 @@ namespace punto_venta.Controllers
         }
 
         //---------------------------DELETE------------------------//
+        [Authorize]
         [HttpDelete]
         public async Task<IActionResult> delete(EnterDTO enterDTO)
         {

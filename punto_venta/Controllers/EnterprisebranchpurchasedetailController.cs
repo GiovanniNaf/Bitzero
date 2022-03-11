@@ -2,7 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using punto_venta.Data;
+using punto_venta.Entidades;
+using punto_venta.Models;
+using punto_venta.Models.DTOS;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,36 +18,89 @@ namespace punto_venta.Controllers
     [Route("api/[controller]")]
     public class EnterprisebranchpurchasedetailController : Controller
     {
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private IMapper _mapper;
+        public readonly AplicationDbContext _db;
+        protected ReponseDTO _response;
+
+        public EnterprisebranchpurchasedetailController(AplicationDbContext db, IMapper mapper)
         {
-            return new string[] { "value1", "value2" };
+            _mapper = mapper;
+            _db = db;
+            _response = new ReponseDTO();
+
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        //-------------------CRUD--------------------------//
+
+        //--------------CREATE-----------------------------//
+        [Authorize]
+        [HttpPost("Register")]
+        public async Task<EnterprisebranchpurchasedetailDTO> Post(EnterprisebranchpurchasedetailDTO enterDTO)
         {
-            return "value";
+            EnterprisebranchpurchasedetailModel CEnterPrisedetail = _mapper.Map<EnterprisebranchpurchasedetailDTO, EnterprisebranchpurchasedetailModel>(enterDTO);
+
+
+            await _db.Database.ExecuteSqlInterpolatedAsync($@"EXEC sp_Insertenterprisebranchpurchasedetail
+                    @id_enterprise ={CEnterPrisedetail.IdEnterprise},
+	                @id_enterpriseBranch ={CEnterPrisedetail.IdEnterpriseBranch},
+	                @id_enterpriseBranchPurchase ={CEnterPrisedetail.IdEnterpriseBranchPurchase},
+	                @id_enterpriseProduct ={CEnterPrisedetail.IdEnterpriseProduct},
+	                @fldunitAmount ={CEnterPrisedetail.FldunitAmount},
+	                @fldprice = {CEnterPrisedetail.Fldprice}
+                                                    ");
+
+            return _mapper.Map<EnterprisebranchpurchasedetailModel, EnterprisebranchpurchasedetailDTO>(CEnterPrisedetail);
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
+
+        //--------------READ--------------------------------//
+        [Authorize]
+        [HttpGet("Lista")]
+        public async Task<IEnumerable<ObtenerEnterprisebranchpurchasedetail>> Get()
         {
+
+            return await _db.Set<ObtenerEnterprisebranchpurchasedetail>().ToListAsync();
         }
 
-        // PUT api/values/5
+
+
+        //----------------UPDATE----------------------------//
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> PutUpdate(EnterprisebranchpurchasedetailDTO enterDTO, int id)
         {
+            EnterprisebranchpurchasedetailModel CEnterPrisedetail = _mapper.Map<EnterprisebranchpurchasedetailDTO, EnterprisebranchpurchasedetailModel>(enterDTO);
+
+            if (id != CEnterPrisedetail.IdEnterprise)
+            {
+                return BadRequest();
+            }
+
+
+            await _db.Database.ExecuteSqlInterpolatedAsync($@"EXEC sp_UpdateEnterprisebranchpurchasedetail
+                    @id_enterprise ={CEnterPrisedetail.IdEnterprise},
+	                @id_enterpriseBranch ={CEnterPrisedetail.IdEnterpriseBranch},
+	                @id_enterpriseBranchPurchase ={CEnterPrisedetail.IdEnterpriseBranchPurchase},
+	                @id_enterpriseProduct ={CEnterPrisedetail.IdEnterpriseProduct},
+	                @fldunitAmount ={CEnterPrisedetail.FldunitAmount},
+	                @fldprice = {CEnterPrisedetail.Fldprice}
+                                                    ");
+
+
+
+
+            return Ok("Actulizado correctamente");
         }
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        //---------------------------DELETE------------------------//
+        [Authorize]
+        [HttpDelete]
+        public async Task<IActionResult> delete(EnterprisebranchpurchasedetailDTO enterDTO)
         {
+            EnterprisebranchpurchasedetailModel CEnterPrisedetail = _mapper.Map<EnterprisebranchpurchasedetailDTO, EnterprisebranchpurchasedetailModel>(enterDTO);
+
+            await _db.Database.ExecuteSqlInterpolatedAsync($@"EXEC sp_DeleteEnterpriseBranchPurchaseDetail
+                    @id_enterprise = {CEnterPrisedetail.IdEnterprise}");
+            return Ok("Eliminado correctamente");
         }
     }
 }

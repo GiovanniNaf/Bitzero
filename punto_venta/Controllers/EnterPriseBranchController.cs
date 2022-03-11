@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using punto_venta.Data;
@@ -32,6 +33,7 @@ namespace punto_venta.Controllers
         //-------------------CRUD--------------------------//
 
         //--------------CREATE-----------------------------//
+        [Authorize]
         [HttpPost("Register")]
         public async Task<EnterPriseBranchDTO> Post(EnterPriseBranchDTO enterDTO)
         {
@@ -40,7 +42,6 @@ namespace punto_venta.Controllers
 
             await _db.Database.ExecuteSqlInterpolatedAsync($@"EXEC sp_InsertEnterpriseBranch
                     @id_enterprise = {CEnterPriseB.IdEnterprise},
-                    @id_enterpriseBranch = {CEnterPriseB.IdEnterpriseBranch},
                     @id_state = {CEnterPriseB.IdState},
                     @id_municipality = {CEnterPriseB.IdMunicipality},
                     @fldrfc ={CEnterPriseB.Fldrfc},
@@ -63,7 +64,7 @@ namespace punto_venta.Controllers
 
 
         //--------------READ--------------------------------//
-        //[Authorize]
+        [Authorize]
         [HttpGet("Lista")]
         public async Task<IEnumerable<ObtenerEnterPriseBranch>> Get()
         {
@@ -74,6 +75,7 @@ namespace punto_venta.Controllers
 
 
         //----------------UPDATE----------------------------//
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUpdate(EnterPriseBranchDTO enterDTO, int id)
         {
@@ -109,6 +111,7 @@ namespace punto_venta.Controllers
         }
 
         //---------------------------DELETE------------------------//
+        [Authorize]
         [HttpDelete]
         public async Task<IActionResult> delete(EnterPriseBranchDTO enterDTO)
         {

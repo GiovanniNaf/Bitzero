@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using punto_venta.Data;
@@ -33,6 +34,7 @@ namespace punto_venta.Controllers
 
         //--------------CREATE-----------------------------//
         [HttpPost("Register")]
+        [Authorize]
         public async Task<EnterpriseBranchCashDTO> Post(EnterpriseBranchCashDTO enterDTO)
         {
             EnterprisebranchcashModel CEnterPriseBCash = _mapper.Map<EnterpriseBranchCashDTO, EnterprisebranchcashModel>(enterDTO);
@@ -41,7 +43,6 @@ namespace punto_venta.Controllers
             await _db.Database.ExecuteSqlInterpolatedAsync($@"EXEC sp_Insertenterprisebranchcash
                     @id_enterprise = {CEnterPriseBCash.IdEnterprise},
                     @id_enterpriseBranch = {CEnterPriseBCash.IdEnterpriseBranch},
-                    @id_enterpriseBranchCash = {CEnterPriseBCash.IdEnterpriseBranchCash},
                     @fldname = {CEnterPriseBCash.Fldname}
                                                     ");
 
@@ -50,7 +51,7 @@ namespace punto_venta.Controllers
 
 
         //--------------READ--------------------------------//
-        //[Authorize]
+        [Authorize]
         [HttpGet("Lista")]
         public async Task<IEnumerable<ObtenerEnterPriseBranchCash>> Get()
         {
@@ -62,6 +63,7 @@ namespace punto_venta.Controllers
 
         //----------------UPDATE----------------------------//
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> PutUpdate(EnterpriseBranchCashDTO enterDTO, int id)
         {
             EnterprisebranchcashModel CEnterPriseBCash = _mapper.Map<EnterpriseBranchCashDTO, EnterprisebranchcashModel>(enterDTO);
@@ -87,6 +89,7 @@ namespace punto_venta.Controllers
         }
 
         //---------------------------DELETE------------------------//
+        [Authorize]
         [HttpDelete]
         public async Task<IActionResult> delete(EnterpriseBranchCashDTO enterDTO)
         {

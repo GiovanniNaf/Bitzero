@@ -36,6 +36,8 @@
     <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
     <None Remove="Swashbuckle.AspNetCore.SwaggerUI" />
     <None Remove="Swashbuckle.AspNetCore.Annotations" />
+    <None Remove="Models\ModelBase\" />
+    <None Remove="Models\ModelDB\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="IdentityAuth\" />
@@ -46,5 +48,7 @@
     <Folder Include="Entidades\" />
     <Folder Include="Repositorio\" />
     <Folder Include="Models\DTOS\" />
+    <Folder Include="Models\ModelBase\" />
+    <Folder Include="Models\ModelDB\" />
   </ItemGroup>
 </Project>

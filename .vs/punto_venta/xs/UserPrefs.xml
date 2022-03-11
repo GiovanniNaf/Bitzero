@@ -1,26 +1,25 @@
 ﻿<Properties StartupConfiguration="{17DC5F7F-500E-4799-8BED-390411663905}|Default">
   <MonoDevelop.Ide.ItemProperties.punto__venta PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="punto_venta/Controllers/EnterPriseBCashController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="punto_venta/Startup.cs">
     <Files>
-      <File FileName="punto_venta/Models/EnterprisebranchcashModel.cs" Line="11" Column="26" />
-      <File FileName="punto_venta/Entidades/ObtenerEnterPriseBranchCash.cs" Line="8" Column="14" />
-      <File FileName="punto_venta/Data/AplicationDbContext.cs" Line="24" Column="10" />
-      <File FileName="punto_venta/Controllers/EnterPriseBCashController.cs" Line="43" Column="82" />
-      <File FileName="punto_venta/Controllers/EnterController.cs" Line="1" Column="1" />
-      <File FileName="punto_venta/Models/InsertenterprisebranchsaledeliveryModel.cs" Line="1" Column="1" />
-      <File FileName="punto_venta/Models/PEnterprisebranchsaledelivery.cs" Line="15" Column="51" />
+      <File FileName="punto_venta/Startup.cs" Line="41" Column="10" />
+      <File FileName="punto_venta/Controllers/UsuarioController.cs" Line="66" Column="1" />
+      <File FileName="punto_venta/Models/DTOS/UsuarioDTO.cs" Line="12" Column="48" />
+      <File FileName="punto_venta/Data/AplicationDbContext.cs" Line="1" Column="1" />
+      <File FileName="punto_venta/Controllers/EnterprisebranchpurchaseController.cs" Line="1" Column="1" />
+      <File FileName="punto_venta/Program.cs" Line="16" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="punto_venta" expanded="True">
             <Node name="punto_venta" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="EnterPriseBCashController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Data" expanded="True" />
-              <Node name="Entidades" expanded="True" />
-              <Node name="Models" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="DTOS" expanded="True" />
+              </Node>
+              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -30,7 +29,10 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/master/Documents/punto_venta/punto_venta/Controllers/UsuarioController.cs" relfile="punto_venta/Controllers/UsuarioController.cs" line="67" column="1" />
+      <Breakpoint file="/Users/master/Documents/punto_venta/punto_venta/Controllers/UsuarioController.cs" relfile="punto_venta/Controllers/UsuarioController.cs" line="63" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

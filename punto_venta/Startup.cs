@@ -72,10 +72,23 @@ namespace punto_venta
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "punto_venta", Version = "v1" });
+                
             });
 
-    
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowWebApp",
+                    builder =>
+
+                        builder.AllowAnyOrigin()
+                               .AllowAnyHeader()
+                               .AllowAnyMethod()
+                    );
+            });
+
         }
+
+       
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -86,7 +99,13 @@ namespace punto_venta
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "punto_venta v1"));
             }
-
+            else
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "punto_venta v1"));
+            }
+        
             app.UseHttpsRedirection();
 
             app.UseRouting();
